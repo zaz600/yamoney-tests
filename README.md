@@ -8,38 +8,47 @@
 
 ## Установка  и запуск
 
-  mkdir ~/src
-  
-  cd ~/src
-  
-  git clone https://github.com/zaz600/yamoney-tests
-  
-  cd yamoney-tests/
-  
-  TEST_USER=user TEST_PASSWORD=password ./gradlew clean test
+```
+mkdir ~/src 
+cd ~/src
+git clone https://github.com/zaz600/yamoney-tests
+cd yamoney-tests/
+TEST_USER=user TEST_PASSWORD=password ./gradlew clean test
+```
 
 ## Настройка имени пользователя
-Имя пользователя, с которым будет выполняться тест, можно изменить через переменные среды окружения.
+Имя пользователя, с которым будет выполняться тест, **требуется** задавать через переменные среды окружения.
   
-  TEST_USER=user
-  
-  TEST_PASSWORD=password
+```  
+TEST_USER=user
+TEST_PASSWORD=password
+```
 
 ## Настройка хостов  
 Через переменные окружения можно изменить адреса хостов, на которых будут запускаться тесты. Например:
 
-  YM_HOST=https://demomoney.yandex.ru PASSPORT_URL=https://demopassport.yandex.ru TEST_USER=user TEST_PASSWORD=password ./gradlew clean test
+```
+YM_HOST=https://demomoney.yandex.ru \
+PASSPORT_URL=https://demopassport.yandex.ru \
+TEST_USER=user \
+TEST_PASSWORD=password \
+./gradlew clean test
+```
 
 По-умолчанию, если переменные среды не заданы, используются значения: 
 - https://money.yandex.ru 
 - https://passport.yandex.ru
 
 ## Allure
-Чтобы сформировать и открыть allure отчет в браузере по умолчанию, можно воспользоваться командой allureServe.
-Если отчет необходимо только сформировать, то можно воспользоваться командой allureReport. 
-В этом случает отчет будет создан в папке build/allure-report
+Чтобы сформировать и открыть allure отчет в браузере по умолчанию, можно воспользоваться командой **allureServe**.  
+Если отчет необходимо только сформировать, то можно воспользоваться командой **allureReport**.   
+В этом случае отчет будет создан в папке **build/allure-report**  
 
-  TEST_USER=user TEST_PASSWORD=password ./gradlew clean test && ./gradlew allureServe
+```
+TEST_USER=user \
+TEST_PASSWORD=password \
+./gradlew clean test && ./gradlew allureServe
+```
 
 
 ## Импорт в IntelliJ Idea
