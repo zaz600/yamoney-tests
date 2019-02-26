@@ -9,7 +9,7 @@ import ru.yandex.money.qa.tests.utils.WebElementEx
 
 class IndexPage(driver: WebDriver) : AbstractPage(driver) {
     override val pageUrl: String = "/"
-    override val homeUrl: String = YM_URL
+    override val serverUrl: String = YM_URL
 
     init {
         initElements(this)

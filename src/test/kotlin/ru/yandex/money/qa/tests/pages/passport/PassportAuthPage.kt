@@ -9,7 +9,7 @@ import ru.yandex.money.qa.tests.utils.WebElementEx
 
 class PassportAuthPage(driver: WebDriver) : AbstractPage(driver) {
     override val pageUrl: String = "/auth"
-    override val homeUrl: String = PASSPORT_URL
+    override val serverUrl: String = PASSPORT_URL
 
     init {
         initElements(this)

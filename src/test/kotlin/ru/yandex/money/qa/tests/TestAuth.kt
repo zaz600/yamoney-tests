@@ -40,7 +40,7 @@ class TestAuth : AbstractSeleniumTest() {
             signInButton.click()
         }
 
-        currentUrl.shouldContains(mainPage.homeUrl)
+        currentUrl.shouldContains(mainPage.serverUrl)
 
         "Отображается главное меню" {
             assertTrue(mainPage.mainMenu.isDisplayed)
