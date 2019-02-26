@@ -1,36 +1,33 @@
 package ru.yandex.money.qa.tests.pages.ym
 
-import io.qameta.allure.Step
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
-import org.openqa.selenium.support.PageFactory
 import ru.yandex.money.qa.tests.YM_URL
 import ru.yandex.money.qa.tests.pages.AbstractPage
+import ru.yandex.money.qa.tests.utils.ElementDescription
+import ru.yandex.money.qa.tests.utils.WebElementEx
 
 class MainPage(driver: WebDriver) : AbstractPage(driver) {
     override val pageUrl: String = "/actions"
     override val homeUrl: String = YM_URL
 
     init {
-        PageFactory.initElements(driver, this)
+        initElements(this)
     }
 
     @FindBy(css = "ul.ym-menu_type_main")
-    lateinit var mainMenu: WebElement
+    @ElementDescription("Боковое меню")
+    lateinit var mainMenu: WebElementEx
 
     @FindBy(css = "div.header2__main span.user__name")
-    private lateinit var userMenu: WebElement
+    @ElementDescription("Меню пользователя")
+    lateinit var userMenu: WebElementEx
 
     @FindBy(css = "div.popup__content a.user__logout")
-    private lateinit var logOutMenuItem: WebElement
-
-    @Step("Нажатие на имя пользователя")
-    fun userMenuClick() = userMenu.click()
-
-    @Step("Нажатие на пункт меню Выход")
-    fun logOutMenuItemClick() = logOutMenuItem.click()
+    @ElementDescription("Пункт меню Выход")
+    lateinit var logOutMenuItem: WebElementEx
 
     fun findUserName(login: String) : WebElement {
         val firstLetter = login.substring(0, 1)

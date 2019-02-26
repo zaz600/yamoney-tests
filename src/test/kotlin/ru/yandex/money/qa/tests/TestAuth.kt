@@ -1,7 +1,6 @@
 package ru.yandex.money.qa.tests
 
 import io.qameta.allure.Epic
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Order
@@ -30,15 +29,15 @@ class TestAuth : AbstractSeleniumTest() {
 
         with(indexPage) {
             open()
-            clickLoginButton()
+            loginButton.click()
         }
 
         with(passportAuthPage) {
             currentUrl.shouldContains(passportAuthPage.fullUrl)
-            fillLogin(user.login)
-            signInClick()
-            fillPassword(user.password)
-            signInClick()
+            fieldLogin.sendKeys(user.login)
+            signInButton.click()
+            fieldPassword.sendKeys(user.password)
+            signInButton.click()
         }
 
         currentUrl.shouldContains(mainPage.homeUrl)
@@ -62,8 +61,8 @@ class TestAuth : AbstractSeleniumTest() {
         // и усложняет разбор в случае падения тестов.фы
 
         with(mainPage) {
-            userMenuClick()
-            logOutMenuItemClick()
+            userMenu.click()
+            logOutMenuItem.click()
         }
         currentUrl.shouldContains("/promo/money/apps")
     }

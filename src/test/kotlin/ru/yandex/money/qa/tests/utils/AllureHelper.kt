@@ -6,6 +6,7 @@ import io.qameta.allure.model.StepResult
 import io.qameta.allure.util.ResultsUtils
 import java.util.*
 
+
 class AllureHelper {
     companion object {
         fun makeStep(name: String, runnable: () -> Unit) {
