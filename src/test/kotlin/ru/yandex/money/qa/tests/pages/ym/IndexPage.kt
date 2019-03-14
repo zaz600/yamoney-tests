@@ -15,7 +15,7 @@ class IndexPage(driver: WebDriver) : AbstractPage(driver) {
         initElements(this)
     }
 
-    @FindBy(css = "div.header2__main span.user a.button")
+    @FindBy(xpath = "//span[contains(@class,'user')]/a[@title='Войти']")
     @ElementDescription("Кнопка Войти")
     lateinit var loginButton: WebElementEx
 }
